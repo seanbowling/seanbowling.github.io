@@ -11,8 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<!-- Bootstrap CSS -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+		<!-- Splide CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 		<style>
 			.projects-container {
 				display: flex;
@@ -23,12 +23,13 @@
 				width: 50%;
 				text-align: left;
 			}
-			.carousel {
+			.splide {
 				width: 45%;
+				text-align: right;
 			}
-			.carousel img {
-				max-height: 400px; /* Optional: limits image height */
-				object-fit: cover; /* Ensures images fit nicely */
+			.splide__slide img {
+				width: 100%;
+				height: auto;
 			}
 		</style>
 	</head>
@@ -126,7 +127,7 @@
 									Diagnosed and repaired complex technical issues on a variety of computers with precision and diligence, ensuring customer satisfaction. Became an Apple Certified Technician and performed technical repairs on iPhones. Provided personalized support to clients, ensuring timely solutions and high-quality service.<br /><br />
 									<img src="images/work3.jpg" alt="Self-Employed Drone Photographer" style="width: 50px; height: 50px; margin-right: 10px; vertical-align: middle;" /><strong>Self-Employed Drone Photographer, Boulder, Colorado</strong> <span style="float: right;">May 2023 – August 2023</span><br />
 									<em>Photographer</em><br />
-									Obtained the FAA Part 107 license for commercial drone pilots and worked with building owners to streamline rooftop inspections. Also provided aerial photography for events and action sports, delivering high-quality visuals for client projects.<br /><br />
+									Obtained the FAA Part 107 license for commercial drone pilots and worked with building owners to streamline rooftop inspections. Also drawingrovided aerial photography for events and action sports, delivering high-quality visuals for client projects.<br /><br />
 									<img src="images/work4.jpg" alt="Shake Shack" style="width: 50px; height: 50px; margin-right: 10px; vertical-align: middle;" /><strong>Shake Shack inc., Boulder, Colorado</strong> <span style="float: right;">June 2021 – August 2022</span><br />
 									<em>Trainer</em><br />
 									Coordinated customer orders, trained new employees, and addressed customer concerns to ensure smooth operations. Worked closely with team members to maintain a high standard of service, while resolving any issues efficiently to enhance the customer experience. Played a key role in onboarding new staff by teaching operational procedures, promoting teamwork, and fostering a positive work environment.
@@ -146,52 +147,24 @@
 											<strong>Student Retention Model:</strong> Built a predictive model with DataRobot to forecast freshman retention rates, achieving an R-squared value of 0.85 on a university dataset.
 										</p>
 									</div>
-									<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-										<ol class="carousel-indicators">
-											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
-										</ol>
-										<div class="carousel-inner">
-											<div class="carousel-item active">
-												<img class="d-block w-100" src="images/project1.jpg" alt="Data Analysis Dashboard">
-												<div class="carousel-caption d-none d-md-block">
-													<h5>project1.jpg</h5>
-													<p>Data Analysis Dashboard</p>
-												</div>
-											</div>
-											<div class="carousel-item">
- легче												<img class="d-block w-100" src="images/project2.jpg" alt="Drone Inspection Tool">
-												<div class="carousel-caption d-none d-md-block">
-													<h5>project2.jpg</h5>
-													<p>Drone Inspection Tool</p>
-												</div>
-											</div>
-											<div class="carousel-item">
-												<img class="d-block w-100" src="images/project3.jpg" alt="Student Retention Model">
-												<div class="carousel-caption d-none d-md-block">
-													<h5>project3.jpg</h5>
-													<p>Student Retention Model</p>
-												</div>
-											</div>
-											<div class="carousel-item">
-												<img class="d-block w-100" src="images/project4.jpg" alt="Additional Project Visual">
-												<div class="carousel-caption d-none d-md-block">
-													<h5>project4.jpg</h5>
-													<p>Additional Project Visual</p>
-												</div>
-											</div>
+									<section id="image-carousel" class="splide" aria-label="Project Images">
+										<div class="splide__track">
+											<ul class="splide__list">
+												<li class="splide__slide">
+													<img src="images/project1.jpg" alt="Data Analysis Dashboard screenshot">
+												</li>
+												<li class="splide__slide">
+													<img src="images/project2.jpg" alt="Drone Inspection Tool in action">
+												</li>
+												<li class="splide__slide">
+													<img src="images/project3.jpg" alt="Student Retention Model output">
+												</li>
+												<li class="splide__slide">
+													<img src="images/project4.jpg" alt="Additional project visual">
+												</li>
+											</ul>
 										</div>
-										<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-											<span class="visually-hidden">Previous</span>
-										</a>
-										<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-											<span class="carousel-control-next-icon" aria-hidden="true"></span>
-											<span class="visually-hidden">Next</span>
-										</a>
-									</div>
+									</section>
 								</div>
 							</section>
 
@@ -223,9 +196,11 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<!-- Bootstrap JS and dependencies -->
-			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+			<!-- Splide JS -->
+			<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+			<script>
+				new Splide('#image-carousel').mount();
+			</script>
 
 	</body>
 </html>
