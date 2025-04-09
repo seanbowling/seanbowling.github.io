@@ -11,39 +11,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 		<style>
-			/* Basic carousel styling */
-			.carousel {
-				position: relative;
-				max-width: 600px;
-				margin: 20px auto;
-				overflow: hidden;
-			}
-			.carousel-images {
+			.projects-container {
 				display: flex;
-				transition: transform 0.5s ease;
+				justify-content: space-between;
+				align-items: flex-start;
 			}
-			.carousel-images img {
-				width: 100%;
-				height: auto;
-				cursor: pointer;
+			.projects-text {
+				width: 50%;
+				text-align: left;
 			}
-			.carousel-button {
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				background: rgba(0, 0, 0, 0.5);
-				color: white;
-				border: none;
-				padding: 10px;
-				cursor: pointer;
-				font-size: 18px;
+			.carousel {
+				width: 45%;
 			}
-			.carousel-button.prev {
-				left: 10px;
-			}
-			.carousel-button.next {
-				right: 10px;
+			.carousel img {
+				max-height: 400px; /* Optional: limits image height */
+				object-fit: cover; /* Ensures images fit nicely */
 			}
 		</style>
 	</head>
@@ -153,17 +138,60 @@
 								<header class="major">
 									<h2>Projects</h2>
 								</header>
-								<p style="text-align: left;">Donec imperdiet consequat consequat. Suspendisse feugiat congue posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-								<div class="carousel">
-									<button class="carousel-button prev">&#10094;</button>
-									<div class="carousel-images">
-										<img src="images/project1.jpg" alt="Project 1">
-										<img src="images/project2.jpg" alt="Project 2">
-									Dom
-										<img src="images/project3.jpg" alt="Project 3">
-										<img src="images/project4.jpg" alt="Project 4">
+								<div class="projects-container">
+									<div class="projects-text">
+										<p>
+											<strong>Data Analysis Dashboard:</strong> Developed an interactive dashboard using R and Excel to visualize sales trends for a mock retail company, incorporating linear regression and clustering techniques.<br /><br />
+											<strong>Drone Inspection Tool:</strong> Created a workflow using Zapier and custom scripts to automate drone-based rooftop inspection reports, reducing processing time by 30% for property managers.<br /><br />
+											<strong>Student Retention Model:</strong> Built a predictive model with DataRobot to forecast freshman retention rates, achieving an R-squared value of 0.85 on a university dataset.
+										</p>
 									</div>
-									<button class="carousel-button next">&#10095;</button>
+									<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+										<ol class="carousel-indicators">
+											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+											<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
+										</ol>
+										<div class="carousel-inner">
+											<div class="carousel-item active">
+												<img class="d-block w-100" src="images/project1.jpg" alt="Data Analysis Dashboard">
+												<div class="carousel-caption d-none d-md-block">
+													<h5>project1.jpg</h5>
+													<p>Data Analysis Dashboard</p>
+												</div>
+											</div>
+											<div class="carousel-item">
+ легче												<img class="d-block w-100" src="images/project2.jpg" alt="Drone Inspection Tool">
+												<div class="carousel-caption d-none d-md-block">
+													<h5>project2.jpg</h5>
+													<p>Drone Inspection Tool</p>
+												</div>
+											</div>
+											<div class="carousel-item">
+												<img class="d-block w-100" src="images/project3.jpg" alt="Student Retention Model">
+												<div class="carousel-caption d-none d-md-block">
+													<h5>project3.jpg</h5>
+													<p>Student Retention Model</p>
+												</div>
+											</div>
+											<div class="carousel-item">
+												<img class="d-block w-100" src="images/project4.jpg" alt="Additional Project Visual">
+												<div class="carousel-caption d-none d-md-block">
+													<h5>project4.jpg</h5>
+													<p>Additional Project Visual</p>
+												</div>
+											</div>
+										</div>
+										<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</a>
+										<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</a>
+									</div>
 								</div>
 							</section>
 
@@ -195,44 +223,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-				$(document).ready(function() {
-					var currentIndex = 0;
-					var $carousel = $('.carousel-images');
-					var $images = $carousel.find('img');
-					var totalImages = $images.length;
-
-					// Adjust carousel width
-					$carousel.css('width', totalImages * 100 + '%');
-					$images.css('width', 100 / totalImages + '%');
-
-					// Next button
-					$('.next').click(function() {
-						if (currentIndex < totalImages - 1) {
-							currentIndex++;
-							$carousel.css('transform', 'translateX(-' + (currentIndex * 100 / totalImages) + '%)');
-						}
-					});
-
-					// Previous button
-					$('.prev').click(function() {
-						if (currentIndex > 0) {
-							currentIndex--;
-							$carousel.css('transform', 'translateX(-' + (currentIndex * 100 / totalImages) + '%)');
-						}
-					});
-
-					// Enlarge on click
-					$images.click(function() {
-						var src = $(this).attr('src');
-						var $enlarged = $('<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; justify-content: center; align-items: center;"><img src="' + src + '" style="max-width: 90%; max-height: 90%; cursor: pointer;"></div>');
-						$('body').append($enlarged);
-						$enlarged.click(function() {
-							$enlarged.remove();
-						});
-					});
-				});
-			</script>
+			<!-- Bootstrap JS and dependencies -->
+			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 
 	</body>
 </html>
