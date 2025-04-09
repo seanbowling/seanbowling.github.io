@@ -11,8 +11,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<!-- Splide CSS -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 		<style>
 			.projects-container {
 				display: flex;
@@ -23,13 +21,72 @@
 				width: 50%;
 				text-align: left;
 			}
-			.splide {
+			.slideshow-container {
 				width: 45%;
-				text-align: right;
+				max-width: 500px; /* Adjusted from 1000px to fit better */
+				position: relative;
+				margin: auto;
 			}
-			.splide__slide img {
+			.mySlides {
+				display: none;
+			}
+			.prev, .next {
+				cursor: pointer;
+				position: absolute;
+				top: 50%;
+				width: auto;
+				margin-top: -22px;
+				padding: 16px;
+				color: white;
+				font-weight: bold;
+				font-size: 18px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+				user-select: none;
+			}
+			.next {
+				right: 0;
+				border-radius: 3px 0 0 3px;
+			}
+			.prev:hover, .next:hover {
+				background-color: rgba(0,0,0,0.8);
+			}
+			.text {
+				color: #f2f2f2;
+				font-size: 15px;
+				padding: 8px 12px;
+				position: absolute;
+				bottom: 8px;
 				width: 100%;
-				height: auto;
+				text-align: center;
+			}
+			.numbertext {
+				color: #f2f2f2;
+				font-size: 12px;
+				padding: 8px 12px;
+				position: absolute;
+				top: 0;
+			}
+			.dot {
+				cursor: pointer;
+				height: 15px;
+				width: 15px;
+				margin: 0 2px;
+				background-color: #bbb;
+				border-radius: 50%;
+				display: inline-block;
+				transition: background-color 0.6s ease;
+			}
+			.active, .dot:hover {
+				background-color: #717171;
+			}
+			.fade {
+				animation-name: fade;
+				animation-duration: 1.5s;
+			}
+			@keyframes fade {
+				from {opacity: .4}
+				to {opacity: 1}
 			}
 		</style>
 	</head>
@@ -127,7 +184,7 @@
 									Diagnosed and repaired complex technical issues on a variety of computers with precision and diligence, ensuring customer satisfaction. Became an Apple Certified Technician and performed technical repairs on iPhones. Provided personalized support to clients, ensuring timely solutions and high-quality service.<br /><br />
 									<img src="images/work3.jpg" alt="Self-Employed Drone Photographer" style="width: 50px; height: 50px; margin-right: 10px; vertical-align: middle;" /><strong>Self-Employed Drone Photographer, Boulder, Colorado</strong> <span style="float: right;">May 2023 – August 2023</span><br />
 									<em>Photographer</em><br />
-									Obtained the FAA Part 107 license for commercial drone pilots and worked with building owners to streamline rooftop inspections. Also drawingrovided aerial photography for events and action sports, delivering high-quality visuals for client projects.<br /><br />
+									Obtained the FAA Part 107 license for commercial drone pilots and worked with building owners to streamline rooftop inspections. Also provided aerial photography for events and action sports, delivering high-quality visuals for client projects.<br /><br />
 									<img src="images/work4.jpg" alt="Shake Shack" style="width: 50px; height: 50px; margin-right: 10px; vertical-align: middle;" /><strong>Shake Shack inc., Boulder, Colorado</strong> <span style="float: right;">June 2021 – August 2022</span><br />
 									<em>Trainer</em><br />
 									Coordinated customer orders, trained new employees, and addressed customer concerns to ensure smooth operations. Worked closely with team members to maintain a high standard of service, while resolving any issues efficiently to enhance the customer experience. Played a key role in onboarding new staff by teaching operational procedures, promoting teamwork, and fostering a positive work environment.
@@ -147,24 +204,36 @@
 											<strong>Student Retention Model:</strong> Built a predictive model with DataRobot to forecast freshman retention rates, achieving an R-squared value of 0.85 on a university dataset.
 										</p>
 									</div>
-									<section id="image-carousel" class="splide" aria-label="Project Images">
-										<div class="splide__track">
-											<ul class="splide__list">
-												<li class="splide__slide">
-													<img src="images/project1.jpg" alt="Data Analysis Dashboard screenshot">
-												</li>
-												<li class="splide__slide">
-													<img src="images/project2.jpg" alt="Drone Inspection Tool in action">
-												</li>
-												<li class="splide__slide">
-													<img src="images/project3.jpg" alt="Student Retention Model output">
-												</li>
-												<li class="splide__slide">
-													<img src="images/project4.jpg" alt="Additional project visual">
-												</li>
-											</ul>
+									<div class="slideshow-container">
+										<div class="mySlides fade">
+											<div class="numbertext">1 / 4</div>
+											<img src="images/project1.jpg" style="width:100%" alt="Data Analysis Dashboard">
+											<div class="text">project1.jpg</div>
 										</div>
-									</section>
+										<div class="mySlides fade">
+											<div class="numbertext">2 / 4</div>
+											<img src="images/project2.jpg" style="width:100%" alt="Drone Inspection Tool">
+											<div class="text">project2.jpg</div>
+										</div>
+										<div class="mySlides fade">
+											<div class="numbertext">3 / 4</div>
+											<img src="images/project3.jpg" style="width:100%" alt="Student Retention Model">
+											<div class="text">project3.jpg</div>
+										</div>
+										<div class="mySlides fade">
+											<div class="numbertext">4 / 4</div>
+											<img src="images/project4.jpg" style="width:100%" alt="Additional Project Visual">
+											<div class="text">project4.jpg</div>
+										</div>
+										<a class="prev" onclick="plusSlides(-1)">❮</a>
+										<a class="next" onclick="plusSlides(1)">❯</a>
+									</div>
+								</div>
+								<div style="text-align:center; margin-top: 10px;">
+									<span class="dot" onclick="currentSlide(1)"></span>
+									<span class="dot" onclick="currentSlide(2)"></span>
+									<span class="dot" onclick="currentSlide(3)"></span>
+									<span class="dot" onclick="currentSlide(4)"></span>
 								</div>
 							</section>
 
@@ -196,10 +265,33 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<!-- Splide JS -->
-			<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 			<script>
-				new Splide('#image-carousel').mount();
+				let slideIndex = 1;
+				showSlides(slideIndex);
+
+				function plusSlides(n) {
+					showSlides(slideIndex += n);
+				}
+
+				function currentSlide(n) {
+					showSlides(slideIndex = n);
+				}
+
+				function showSlides(n) {
+					let i;
+					let slides = document.getElementsByClassName("mySlides");
+					let dots = document.getElementsByClassName("dot");
+					if (n > slides.length) { slideIndex = 1 }
+					if (n < 1) { slideIndex = slides.length }
+					for (i = 0; i < slides.length; i++) {
+						slides[i].style.display = "none";
+					}
+					for (i = 0; i < dots.length; i++) {
+						dots[i].className = dots[i].className.replace(" active", "");
+					}
+					slides[slideIndex-1].style.display = "block";
+					dots[slideIndex-1].className += " active";
+				}
 			</script>
 
 	</body>
