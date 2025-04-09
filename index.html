@@ -6,11 +6,46 @@
 -->
 <html>
 	<head>
-		<title>Spirit</title>
+		<title>Sean Bowling</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Basic carousel styling */
+			.carousel {
+				position: relative;
+				max-width: 600px;
+				margin: 20px auto;
+				overflow: hidden;
+			}
+			.carousel-images {
+				display: flex;
+				transition: transform 0.5s ease;
+			}
+			.carousel-images img {
+				width: 100%;
+				height: auto;
+				cursor: pointer;
+			}
+			.carousel-button {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: rgba(0, 0, 0, 0.5);
+				color: white;
+				border: none;
+				padding: 10px;
+				cursor: pointer;
+				font-size: 18px;
+			}
+			.carousel-button.prev {
+				left: 10px;
+			}
+			.carousel-button.next {
+				right: 10px;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -44,7 +79,7 @@
 										<header class="major">
 											<h2>Hi, I'm Sean</h2>
 										</header>
-										<p>I am studying Business Analytics at the University of Colorado, Boulder: Leeds School of Business with a passion for gaining insights from data. Welcome to my website! I am also deeply interested in philosophy, law, technology and the broader field of business.</p>
+										<p>I am studying Business Analytics at the University of Colorado, Boulder: Leeds School of Business with a passion for gaining insights from data. I am also deeply interested in philosophy, law, technology and the broader field of business. Welcome to my website!</p>
 									</div>
 									<span class="image"><img src="https://i.imgur.com/xRnc7UT.jpeg" alt="" style="margin: 0;" /></span>
 								</div>
@@ -111,16 +146,25 @@
 									<em>Trainer</em><br />
 									Coordinated customer orders, trained new employees, and addressed customer concerns to ensure smooth operations. Worked closely with team members to maintain a high standard of service, while resolving any issues efficiently to enhance the customer experience. Played a key role in onboarding new staff by teaching operational procedures, promoting teamwork, and fostering a positive work environment.
 								</p>
-<<<<<<< HEAD
 							</section>
 
 						<!-- Projects -->
 							<section id="projects" class="main special">
 								<header class="major">
 									<h2>Projects</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
 								</header>
+								<p style="text-align: left;">Donec imperdiet consequat consequat. Suspendisse feugiat congue posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+								<div class="carousel">
+									<button class="carousel-button prev">&#10094;</button>
+									<div class="carousel-images">
+										<img src="images/project1.jpg" alt="Project 1">
+										<img src="images/project2.jpg" alt="Project 2">
+									Dom
+										<img src="images/project3.jpg" alt="Project 3">
+										<img src="images/project4.jpg" alt="Project 4">
+									</div>
+									<button class="carousel-button next">&#10095;</button>
+								</div>
 							</section>
 
 						<!-- Contact Info -->
@@ -144,13 +188,51 @@
 			</div>
 
 		<!-- Scripts -->
-			<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				$(document).ready(function() {
+					var currentIndex = 0;
+					var $carousel = $('.carousel-images');
+					var $images = $carousel.find('img');
+					var totalImages = $images.length;
 
-	<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92dd35c38d2db062',t:'MTc0NDIzNTMyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+					// Adjust carousel width
+					$carousel.css('width', totalImages * 100 + '%');
+					$images.css('width', 100 / totalImages + '%');
+
+					// Next button
+					$('.next').click(function() {
+						if (currentIndex < totalImages - 1) {
+							currentIndex++;
+							$carousel.css('transform', 'translateX(-' + (currentIndex * 100 / totalImages) + '%)');
+						}
+					});
+
+					// Previous button
+					$('.prev').click(function() {
+						if (currentIndex > 0) {
+							currentIndex--;
+							$carousel.css('transform', 'translateX(-' + (currentIndex * 100 / totalImages) + '%)');
+						}
+					});
+
+					// Enlarge on click
+					$images.click(function() {
+						var src = $(this).attr('src');
+						var $enlarged = $('<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; justify-content: center; align-items: center;"><img src="' + src + '" style="max-width: 90%; max-height: 90%; cursor: pointer;"></div>');
+						$('body').append($enlarged);
+						$enlarged.click(function() {
+							$enlarged.remove();
+						});
+					});
+				});
+			</script>
+
+	</body>
 </html>
