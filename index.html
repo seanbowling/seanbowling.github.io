@@ -21,72 +21,27 @@
 				width: 50%;
 				text-align: left;
 			}
-			.slideshow-container {
+			.projects-images {
 				width: 45%;
-				max-width: 500px;
-				position: relative;
-				margin: auto;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				align-items: center;
 			}
-			.mySlides {
-				display: none;
-			}
-			.prev, .next {
-				cursor: pointer;
-				position: absolute;
-				top: 50%;
-				width: auto;
-				margin-top: -22px;
-				padding: 16px;
-				color: white;
-				font-weight: bold;
-				font-size: 18px;
-				transition: 0.6s ease;
-				border-radius: 0 3px 3px 0;
-				user-select: none;
-			}
-			.next {
-				right: 0;
-				border-radius: 3px 0 0 3px;
-			}
-			.prev:hover, .next:hover {
-				background-color: rgba(0,0,0,0.8);
-			}
-			.text {
-				color: #f2f2f2;
-				font-size: 15px;
-				padding: 8px 12px;
-				position: absolute;
-				bottom: 8px;
-				width: 100%;
+			.project-image-container {
 				text-align: center;
 			}
-			.numbertext {
-				color: #f2f2f2;
-				font-size: 12px;
-				padding: 8px 12px;
-				position: absolute;
-				top: 0;
+			.project-image-container img {
+				max-width: 100%;
+				height: auto;
+				max-height: 200px;
+				object-fit: cover;
 			}
-			.dot {
-				cursor: pointer;
-				height: 15px;
-				width: 15px;
-				margin: 0 2px;
-				background-color: #bbb;
-				border-radius: 50%;
-				display: inline-block;
-				transition: background-color 0.6s ease;
-			}
-			.active, .dot:hover {
-				background-color: #717171;
-			}
-			.fade {
-				animation-name: fade;
-				animation-duration: 1.5s;
-			}
-			@keyframes fade {
-				from {opacity: .4}
-				to {opacity: 1}
+			.project-image-container p {
+				color: #888;
+				font-style: italic;
+				font-size: 0.9em;
+				margin: 5px 0 0 0;
 			}
 		</style>
 	</head>
@@ -191,41 +146,24 @@
 								<div class="projects-container">
 									<div class="projects-text">
 										<p>
-											<strong>Timber Ridge Access Database:</strong> Planned a database for an apartment complex in Boulder with an ER diagram (using erdplus.com). Implemented the database via Microsoft Access. Used Oracle Live SQL to group data from the relational database in a way that would be helpful to the apartment complex, and implemented in the database using "Queries." Created forms as a user friendly way to add data into tables. During this project, I learned the fundamentals of relational databases, from planning to implementation. I learned the syntax of SQL and how it can be used to group and extract data from a database. I was able to understand a business' needs and was able to ask the right questions to build this database properly.<br /><br />
-											<strong>Freshman Retention Rate Prediction Model:</strong> Using real world data on freshman retention rates, I used DataRobot to generate models that would predict the next year's retention rate. I created an Excel template that would determine revenue from a model, and was able to generate the most revenue in my class. During this project, I learned to use Excel and Alteryx to format data in a manner optimized for AutoML. I learned how AutoML works, and how to use DataRobot to generate models and select the best one.<br /><br />
-											<strong>FiftyFifty:</strong> An Android app I programmed that has users click boxes with a 50% chance to lose and have to restart, and compete to get the highest score. Coded using Flutter with Dart and Android Studio. Learned basic structures Dart from Youtube and was able to dictate to WindSurf features to add to my app. I learned how to program mobile apps with Flutter and Dart. I also learned how prompt engineering with WindSurf to make specific changes to my app.
+											<strong>Timber Ridge Access Database:</strong> Planned a database for an apartment complex in Boulder with an ER diagram (using erdplus.com). Implemented the database via Microsoft Access. Used Oracle Live SQL to group data from the relational database in a way that would be helpful to the apartment complex, and implemented in the database using "Queries." Created forms as a user friendly way to add data into tables.<br />
+											During this project, I learned the fundamentals of relational databases, from planning to implementation. I learned the syntax of SQL and how it can be used to group and extract data from a database. I was able to understand a business' needs and was able to ask the right questions to build this database properly.<br /><br />
+											<strong>Freshman Retention Rate Prediction Model:</strong> Using real world data on freshman retention rates, I used DataRobot to generate models that would predict the next year's retention rate. I created an Excel template that would determine revenue from a model, and was able to generate the most revenue in my class.<br />
+											During this project, I learned to use Excel and Alteryx to format data in a manner optimized for AutoML. I learned how AutoML works, and how to use DataRobot to generate models and select the best one.<br /><br />
+											<strong>FiftyFifty:</strong> An Android app I programmed that has users click boxes with a 50% chance to lose and have to restart, and compete to get the highest score. Coded using Flutter with Dart and Android Studio. Learned basic structures Dart from Youtube and was able to dictate to WindSurf features to add to my app.<br />
+											During this project, I learned how to program mobile apps with Flutter and Dart. I also learned how prompt engineering with WindSurf to make specific changes to my app.
 										</p>
 									</div>
-									<div class="slideshow-container">
-										<div class="mySlides fade">
-											<div class="numbertext">1 / 4</div>
-											<img src="images/project1.jpg" style="width:100%" alt="Timber Ridge Access Database">
-											<div class="text">project1.jpg</div>
+									<div class="projects-images">
+										<div class="project-image-container">
+											<img src="images/project1.jpg" alt="Timber Ridge Access Database">
+											<p>The relational database hosted in Microsoft Access</p>
 										</div>
-										<div class="mySlides fade">
-											<div class="numbertext">2 / 4</div>
-											<img src="images/project2.jpg" style="width:100%" alt="Freshman Retention Rate Prediction Model">
-											<div class="text">project2.jpg</div>
+										<div class="project-image-container">
+											<img src="images/project2.jpg" alt="Freshman Retention Rate Prediction Model">
+											<p>The revenue template, comparing models from DataRobot</p>
 										</div>
-										<div class="mySlides fade">
-											<div class="numbertext">3 / 4</div>
-											<img src="images/project3.jpg" style="width:100%" alt="FiftyFifty App">
-											<div class="text">project3.jpg</div>
-										</div>
-										<div class="mySlides fade">
-											<div class="numbertext">4 / 4</div>
-											<img src="images/project4.jpg" style="width:100%" alt="Additional Project Visual">
-											<div class="text">project4.jpg</div>
-										</div>
-										<a class="prev" onclick="plusSlides(-1)">❮</a>
-										<a class="next" onclick="plusSlides(1)">❯</a>
 									</div>
-								</div>
-								<div style="text-align:center; margin-top: 10px;">
-									<span class="dot" onclick="currentSlide(1)"></span>
-									<span class="dot" onclick="currentSlide(2)"></span>
-									<span class="dot" onclick="currentSlide(3)"></span>
-									<span class="dot" onclick="currentSlide(4)"></span>
 								</div>
 							</section>
 
@@ -257,34 +195,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-				let slideIndex = 1;
-				showSlides(slideIndex);
-
-				function plusSlides(n) {
-					showSlides(slideIndex += n);
-				}
-
-				function currentSlide(n) {
-					showSlides(slideIndex = n);
-				}
-
-				function showSlides(n) {
-					let i;
-					let slides = document.getElementsByClassName("mySlides");
-					let dots = document.getElementsByClassName("dot");
-					if (n > slides.length) { slideIndex = 1 }
-					if (n < 1) { slideIndex = slides.length }
-					for (i = 0; i < slides.length; i++) {
-						slides[i].style.display = "none";
-					}
-					for (i = 0; i < dots.length; i++) {
-						dots[i].className = dots[i].className.replace(" active", "");
-					}
-					slides[slideIndex-1].style.display = "block";
-					dots[slideIndex-1].className += " active";
-				}
-			</script>
 
 	</body>
 </html>
