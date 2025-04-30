@@ -13,6 +13,30 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<style>
+			/* Set all text to pure black */
+			* {
+				color: #000000 !important;
+			}
+			/* Override specific elements to ensure black text */
+			h1, h2, h3, h4, h5, h6, p, a, span, li, strong, em {
+				color: #000000 !important;
+			}
+			/* Reduce top padding/margin to make hero section start at top */
+			#wrapper {
+				padding-top: 0 !important;
+				margin-top: 0 !important;
+			}
+			#header {
+				padding-top: 1rem !important;
+				margin-top: 0 !important;
+			}
+			#nav {
+				margin-top: 0 !important;
+			}
+			#main {
+				margin-top: 0 !important;
+			}
+			/* Projects section styling */
 			.projects-container {
 				display: flex;
 				justify-content: space-between;
@@ -39,7 +63,7 @@
 				object-fit: cover;
 			}
 			.project-image-container p {
-				color: #888;
+				color: #000000 !important; /* Override caption color to black */
 				font-style: italic;
 				font-size: 0.9em;
 				margin: 5px 0 0 0;
